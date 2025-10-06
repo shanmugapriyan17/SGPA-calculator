@@ -1,0 +1,149 @@
+:root {
+  --bg: #212121;
+  --panel: #262e3b;
+  --surface: #1f1f1f;
+  --text: #ffffff;
+  --muted: #a9abb3;
+  --red: #c41e3a;
+  --red-light: #ff4d4d;
+  --round: 14px;
+  --transition: 0.3s;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h1 {
+  color: var(--red-light);
+  font-size: 2rem;
+}
+
+p {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.calculator {
+  background: var(--panel);
+  padding: 20px;
+  border-radius: var(--round);
+  width: 100%;
+  max-width: 650px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+}
+
+.subject-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 15px;
+  background: var(--surface);
+  padding: 15px;
+  border-radius: var(--round);
+  align-items: center;
+  transition: transform var(--transition);
+}
+
+.subject-row:hover {
+  transform: translateY(-3px);
+}
+
+.subject-row input, .subject-row select {
+  flex: 1 1 30%;
+  padding: 10px;
+  border-radius: var(--round);
+  border: none;
+  background: var(--panel);
+  color: var(--text);
+  outline: none;
+}
+
+.subject-row input::placeholder, .subject-row select {
+  color: var(--muted);
+}
+
+.subject-row button.remove {
+  flex: 1 1 10%;
+  min-width: 40px;
+  padding: 10px;
+  border-radius: var(--round);
+  border: none;
+  background: var(--red-light);
+  color: var(--text);
+  cursor: pointer;
+  transition: background var(--transition), transform var(--transition);
+}
+
+.subject-row button.remove:hover {
+  background: var(--red);
+  transform: scale(1.1);
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.buttons button {
+  padding: 14px;
+  border: none;
+  border-radius: var(--round);
+  background: var(--red);
+  color: var(--text);
+  font-weight: bold;
+  cursor: pointer;
+  transition: background var(--transition), transform var(--transition);
+}
+
+.buttons button:hover {
+  background: var(--red-light);
+  transform: scale(1.03);
+}
+
+#result {
+  margin-top: 25px;
+  font-size: 1.4rem;
+  text-align: center;
+  color: var(--red-light);
+}
+
+/* Responsive Mobile */
+@media (max-width: 600px) {
+  .subject-row input, .subject-row select {
+    flex: 1 1 100%;
+  }
+
+  .subject-row button.remove {
+    flex: 1 1 100%;
+  }
+}
+
+/* Tablet */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .subject-row input, .subject-row select {
+    flex: 1 1 45%;
+  }
+  .subject-row button.remove {
+    flex: 1 1 10%;
+  }
+}
